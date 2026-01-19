@@ -19,7 +19,7 @@ fun GestionNavegacion(){
         entryProvider = { key ->
             when(key){
                 is Routes.Home -> NavEntry(key){
-                    PantHome(navegaADetalle = { id -> pilaNavegacion.add(Routes.Detalle(id)) })
+                    TiendaHome(navegaADetalle = { id -> pilaNavegacion.add(Routes.Detalle(id)) })
                 }
                 is Routes.Detalle -> NavEntry(key){
                     PantDetalle(
