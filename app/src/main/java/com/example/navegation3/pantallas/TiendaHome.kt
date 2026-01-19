@@ -31,7 +31,9 @@ fun TiendaHome(navegaADetalle: (Int) -> Unit) {
         topBar = {
             Text(
                 text = "Bebidas disponibles:",
-                modifier = Modifier.padding(16.dp),
+                modifier = Modifier
+                    .statusBarsPadding()
+                    .padding(16.dp),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
             )

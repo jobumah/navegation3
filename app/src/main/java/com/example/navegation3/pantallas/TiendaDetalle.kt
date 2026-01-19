@@ -17,7 +17,7 @@ import com.example.navegation3.R
 import com.example.navegation3.model.Producto
 
 @Composable
-fun TiendaDetalle(id: Int, navegaAtras: () -> Unit) {
+fun TiendaDetalle(id: Int, navegaACompra: () -> Unit, navegaAtras: () -> Unit) {
     val producto = when (id) {
         1 -> Producto(1, "Vodka Absolut", 18.50, R.drawable.vodka)
         2 -> Producto(2, "Whisky Jameson", 22.90, R.drawable.jameson)
@@ -33,7 +33,6 @@ fun TiendaDetalle(id: Int, navegaAtras: () -> Unit) {
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Imagen de la bebida
             Image(
                 painter = painterResource(id = producto.imagen),
                 contentDescription = producto.nombre,
@@ -76,7 +75,7 @@ fun TiendaDetalle(id: Int, navegaAtras: () -> Unit) {
             Spacer(modifier = Modifier.weight(1f))
 
             Button(
-                onClick = { /* Acción de comprar */ },
+                onClick = navegaACompra,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(55.dp),
