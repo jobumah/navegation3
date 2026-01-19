@@ -5,9 +5,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.example.navegation3.pantallas.PantDetalle
 import com.example.navegation3.pantallas.PantHistorico
-import com.example.navegation3.pantallas.PantHome
+import com.example.navegation3.pantallas.TiendaDetalle
+import com.example.navegation3.pantallas.TiendaHome
 
 @Composable
 fun GestionNavegacion(){
@@ -22,14 +22,9 @@ fun GestionNavegacion(){
                     TiendaHome(navegaADetalle = { id -> pilaNavegacion.add(Routes.Detalle(id)) })
                 }
                 is Routes.Detalle -> NavEntry(key){
-                    PantDetalle(
+                    TiendaDetalle(
                         id = key.id,
-                        navegaAHistorico = { pilaNavegacion.add(Routes.Historico) },
-                        navegaAHome = { 
-                            while (pilaNavegacion.size > 1) {
-                                pilaNavegacion.removeLastOrNull()
-                            }
-                        }
+                        navegaAtras = { pilaNavegacion.removeLastOrNull() }
                     )
                 }
                 is Routes.Historico -> NavEntry(key){

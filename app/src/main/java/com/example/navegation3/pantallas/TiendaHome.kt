@@ -17,26 +17,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.navegation3.R
-
-data class Producto(
-    val id: Int,
-    val nombre: String,
-    val precio: Double,
-    val imagen: Int
-)
+import com.example.navegation3.model.Producto
 
 @Composable
 fun TiendaHome(navegaADetalle: (Int) -> Unit) {
     val listaProductos = listOf(
-        Producto(1, "Zapatillas Nike", 99.99, R.drawable.ic_launcher_foreground),
-        Producto(2, "Camiseta Malaga CF", 69.9, R.drawable.ic_launcher_foreground),
-        Producto(3, "Gorra Malaga CF", 15.0, R.drawable.ic_launcher_foreground)
+        Producto(1, "Vodka Absolut", 18.50, R.drawable.vodka),
+        Producto(2, "Whisky Jameson", 22.90, R.drawable.jameson),
+        Producto(3, "Ron Añejo", 15.75, R.drawable.ron)
     )
 
     Scaffold(
         topBar = {
             Text(
-                text = "Catálogo disponible:",
+                text = "Bebidas disponibles:",
                 modifier = Modifier.padding(16.dp),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
@@ -62,7 +56,7 @@ fun ItemProducto(producto: Producto, onVerClick: () -> Unit) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(containerColor = Color(0xFFE0E0E0)) // Un gris clarito como la imagen
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFE0E0E0))
     ) {
         Row(
             modifier = Modifier
@@ -70,7 +64,6 @@ fun ItemProducto(producto: Producto, onVerClick: () -> Unit) {
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Imagen del producto
             Box(
                 modifier = Modifier
                     .size(80.dp)
@@ -87,7 +80,6 @@ fun ItemProducto(producto: Producto, onVerClick: () -> Unit) {
 
             Spacer(modifier = Modifier.width(16.dp))
 
-            // Textos (Nombre y Precio)
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -104,10 +96,9 @@ fun ItemProducto(producto: Producto, onVerClick: () -> Unit) {
                 )
             }
 
-            // Botón Ver
             Button(
                 onClick = onVerClick,
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF5C6BC0)), // Azul/violeta de la imagen
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF5C6BC0)),
                 shape = RoundedCornerShape(50)
             ) {
                 Text(text = "Ver", color = Color.White)
