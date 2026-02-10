@@ -8,7 +8,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.example.navegation3.pantallas.LoginScreen
 import com.example.navegation3.pantallas.PantHome
 import com.example.navegation3.pantallas.RegisterScreen
-import com.example.navegation3.pantallas.TiendaDetalle
+import com.example.navegation3.pantallas.PantDetalle
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
@@ -49,10 +49,8 @@ fun GestionNavegacion(auth: FirebaseAuth) {
                     )
                 }
                 is Routes.Detalle -> NavEntry(key) {
-                    // Adaptamos TiendaDetalle para que reciba el id como String si es necesario
-                    TiendaDetalle(
-                        id = key.id.toIntOrNull() ?: 0,
-                        navegaACompra = { }, 
+                    PantDetalle(
+                        id = key.id,
                         navegaAtras = { pilaNavegacion.removeLastOrNull() }
                     )
                 }
