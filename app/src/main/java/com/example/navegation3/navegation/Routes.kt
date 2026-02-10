@@ -5,13 +5,16 @@ import kotlinx.serialization.Serializable
 
 sealed class Routes: NavKey {
     @Serializable
-    data object Home: Routes()
+    data object Login: Routes()
 
     @Serializable
-    data class Detalle(val id: Int): Routes()
+    data object Register: Routes()
 
     @Serializable
-    data object Compra: Routes()
+    data class Home(val email: String): Routes()
+
+    @Serializable
+    data class Detalle(val id: String): Routes()
 
     @Serializable
     data object Error: Routes()
