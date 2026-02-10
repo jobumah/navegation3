@@ -6,9 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.navegation3.navegation.GestionNavegacion
 import com.example.navegation3.ui.theme.Navegation3Theme
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
-import com.google.firebase.Firebase
 
 class MainActivity : ComponentActivity() {
 
